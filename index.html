@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reila Arvier</title>
+  <link rel="stylesheet" href="Indexstyles.css">
+  <script defer src="Indexscript.js"></script>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="header">
+    <div class="logo"><h2>Reila Arvier</h2></div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="javascript:void(0);" class="tab-link" data-tab="profile">About</a></li>
+        <li><a href="javascript:void(0);" class="tab-link" data-tab="books">Books</a></li>
+        <li><a href="javascript:void(0);" class="tab-link" data-tab="reminder">Reminder</a></li>
+        <li><a href="javascript:void(0);" class="tab-link" data-tab="contact">Contact</a></li>
+        <li><button id="theme-toggle">🌙 Toggle Theme</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Welcome to Reila Arvier's World</h1>
+      <p>Author & Storyteller | Dive into captivating tales</p>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="card tab-content">
+      <img src="image-150x150.jpg" alt="Reila Arvier">
+      <div class="profile-text">
+        <h2>Reila Arvier</h2>
+        <p><strong>Age:</strong> 20</p>
+        <p><strong>Height:</strong> 150 cm</p>
+        <p><strong>Birthday:</strong> Jan. 2nd</p>
+        <p><strong>Sign:</strong> Capricorn</p>
+        <p><strong>Occupation:</strong> Author & College Student</p>
+      </div>
+    </section>
+
+     <!-- Books Section (Initially Hidden) -->
+     <section id="books" class="books-grid tab-content" style="display: none;">
+      <h2>Books</h2>
+      <div class="books-grid">
+
+        <div class="book" data-title="Tales Of Chrystalia" 
+        data-info="Published: 2023.<br><br>
+        Genre: Fantasy.<br><br>
+        Synopsis: A tale of love and adventure amidst magical realms. Do the lost kingdom
+        true heir will come back to reclaim his right or not?<br> <br> 
+        <button><a href='ToC/Tales of Chrystalia.html'>Lets began the journey </a></button>">
+          <img src="ToC/Six Hands Chalk.jpg" alt="Tales Of Chrystalia">
+          <h3>Tales Of Chrystalia</h3>
+        </div>
+        
+        <div class="book" data-title="Cyber Knight" 
+        data-info="Published: xxxx.<br><br>
+        Genre: Fantasy, Cyber.<br><br>
+        Synopsis: A tale of rebellion and redemption amidst cybernetic realms. What secrets lie within the forbidden Peony program, 
+        and why was the last test subject saved by a fallen protector?<br> <br> 
+        <button><a href='CK/CK.html'>Lets began the journey </a></button>">
+          <img src="CK/Knight.png" alt="Cyber Knight">
+          <h3>Cyber Knight</h3>
+        </div>
+              
+      <div class="book" data-title="Twisted Wonderland" 
+      data-info="Published: xxxx.<br><br>
+      Genre: Fantasy, Cyber.<br><br>
+      Synopsis: A tale of rebellion and redemption amidst cybernetic realms. What secrets lie within the forbidden Peony program, 
+      and why was the last test subject saved by a fallen protector?<br> <br> 
+      <button><a href='TWST/Twisted Wonderland Fanfict.html'>Lets began the journey </a></button>">
+        <img src="#" alt="Twisted Wonderland">
+        <h3>Twisted Wonderland</h3>
+      </div>
+
+      <div class="book" data-title="Love and Deepspace" 
+      data-info="Published: xxxx.<br><br>
+      Genre: Fantasy, Cyber.<br><br>
+      Synopsis: A tale of rebellion and redemption amidst cybernetic realms. What secrets lie within the forbidden Peony program, 
+      and why was the last test subject saved by a fallen protector?<br> <br> 
+      <button><a href='LnD/Main Menu.html'>Lets began the journey </a></button>">
+        <img src="#" alt="Love and Deepspace">
+        <h3>Love and Deepspace</h3>
+      </div>
+
+        <p>coming soon</p>
+      </div>
+    </div>
+    </section>
+
+    <!-- Reminder & Notes Section -->
+    <section id="reminder" class="card tab-content" style="display: none;">
+      <h2>Reminder & Notes</h2>
+      
+      <div class="notes-section">
+        <h3>Notes</h3>
+        <div id="notesList" class="cards-container"></div>
+        <textarea id="newNote" placeholder="Write your note here..."></textarea>
+        <button id="addNoteBtn">Add Note</button>
+      </div>
+
+      <div class="reminders-section">
+        <h3>Reminders</h3>
+        <div id="remindersList" class="cards-container"></div>
+        <input type="datetime-local" id="reminderDate">
+        <textarea id="newReminder" placeholder="Write your reminder..."></textarea>
+        <button id="addReminderBtn">Add Reminder</button>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="card tab-content" style="display: none;">
+      <h2>Contact</h2>
+      <p>Email: reila@example.com</p>
+    </section>
+
+  </main>
+
+  <!-- Modal for Book & Notes -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-info"></p>
+      <button id="close-modal">Close</button>
+    </div>
+  </div>
+
+</body>
+</html>
