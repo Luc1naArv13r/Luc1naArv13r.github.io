@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Knight</title>
+  <link rel="stylesheet" href="CK.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul>
+        <li><a href="/index.html"><b>Home</b></a></li>
+        <li><a href="CK.html"><b>Book</b></a></li>
+        <li><a href="Char.html"><b>Characters</b></a></li>
+        <li><a href="World.html" class="active"><b>World</b></a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <!-- Characters Section -->
+    <section id="characters">
+      <h2>Meet the Characters</h2>
+      <div class="characters-grid">
+        <div class="character" data-character="1">
+          <img src="Reila Arvier.jpeg" alt="Rhea" class="character-img">
+          <h3>Rheala (Rhea)<br>
+          <i>(Peony Unit No:R-3A)</i></h3>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Character Detail Popups -->
+  <div id="character-popup" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="character-name"></h2>
+      <img src="" id="character-img-popup" alt="Character Image">
+      <div id="character-info"></div>
+    </div>
+  </div>
+
+  <script src="CK.js"></script>
+</body>
+</html>

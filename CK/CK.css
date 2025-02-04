@@ -1,0 +1,323 @@
+/* Importing Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap');
+
+/* CSS Variables for Theme */
+:root {
+    --primary-color: #8A2BE2;
+    --secondary-color: #ff0077;
+    --background-color: #0e0e0e;
+    --text-color: #e4e4e4;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --shadow-color: rgba(138, 43, 226, 0.5);
+}
+
+/* General Styles */
+body {
+    font-family: 'Rajdhani', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--background-color);
+    color: var(--text-color);
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Keyframes */
+@keyframes smoothFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes smoothScaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-bottom: 3px solid var(--primary-color);
+    box-shadow: 0 4px 20px var(--shadow-color);
+    animation: smoothFadeIn 0.8s ease-in-out;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar ul li a:hover, .navbar ul li a:focus {
+    color: var(--secondary-color);
+    transform: translateY(-5px);
+    outline: none;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* Book Section */
+.book-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+    margin-bottom: 40px;
+    transition: transform 0.3s ease;
+    animation: smoothFadeIn 0.8s ease-in-out;
+}
+
+.book-header:hover {
+    transform: scale(1.02);
+}
+
+.book-cover {
+    width: 350px;
+    height: 450px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    transition: transform 0.3s ease;
+}
+
+.book-cover:hover {
+    transform: scale(1.05);
+}
+
+.book-details {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    line-height: 1.7;
+    flex-grow: 1;
+}
+
+.book-details strong {
+    color: var(--secondary-color);
+}
+
+/* Characters Section */
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    animation: smoothFadeIn 0.6s ease-in-out;
+}
+
+.character {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 20px;
+    background: var(--card-bg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    will-change: transform, box-shadow;
+}
+
+.character:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 0, 255, 0.5);
+    background: rgba(138, 43, 226, 0.2);
+}
+
+.character img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.character:hover img {
+    transform: scale(1.1);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background: #121212;
+    color: var(--text-color);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80%;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.6);
+    transform: scale(0.9);
+    opacity: 0;
+    animation: smoothScaleUp 0.8s ease-in-out forwards;
+}
+
+/* Character Image and Bio */
+#character-img-popup {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+/* Character Info */
+#character-info {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    text-align: left;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: var(--primary-color);
+}
+
+/* Headings */
+h1, h2 {
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+}
+
+h3 {
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 1px;
+    color: var(--secondary-color);
+}
+
+/* Responsive Styles for Mobile */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .navbar ul li a {
+        font-size: 1.2rem;
+    }
+
+    .container {
+        padding: 20px 10px;
+    }
+
+    .book-header {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .book-cover {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+    }
+
+    .book-details {
+        font-size: 1rem;
+    }
+
+    .characters-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+
+    .character img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+
+    #character-img-popup {
+        width: 200px;
+        height: 200px;
+    }
+
+    #character-info {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .close {
+        font-size: 24px;
+    }
+
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+}
