@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Character Selection</title>
+  <link rel="stylesheet" href="LnDstyles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <h1>Select Who You Want to Meet</h1>
+    <div class="characters">
+      <div class="character" id="Vivian">
+        <img src="drive-download-20250109T103339Z-001/InShot_20241227_204156586.png" alt="Vivian">
+        <h3>Vivian</h3>
+        <button onclick="showPopup('Vivian')">Select</button>
+      </div>
+      <div class="character" id="Flora">
+        <img src="drive-download-20250109T103339Z-001/InShot_20241227_204235740.png" alt="Flora">
+        <h3>Flora</h3>
+        <button onclick="showPopup('Flora')">Select</button>
+      </div>
+      <div class="character" id="Reila">
+        <img src="drive-download-20250109T103339Z-001/InShot_20241227_204402751.png" alt="Reila">
+        <h3>Reila</h3>
+        <button onclick="showPopup('Reila')">Select</button>
+      </div>
+      <div class="character" id="Lucina">
+        <img src="drive-download-20250109T103339Z-001/InShot_20250106_094908647.png" alt="Lucina">
+        <h3>Lucina</h3>
+        <button onclick="showPopup('Lucina')">Select</button>
+      </div>
+      <div class="character" id="Clara">
+        <img src="assets/placeholder.png" alt="Clara">
+        <h3>Clara</h3>
+        <button onclick="showPopup('Clara')">Select</button>
+      </div>
+    </div>
+    <!-- Popup Modal -->
+    <div id="popup" class="popup hidden">
+      <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <img id="popup-image" src="" alt="Character Image">
+        <h3 id="popup-title"></h3>
+        <div id="popup-details">
+          <!-- Dynamic details will be added here -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="LnDscript.js"></script>
+</body>
+</html>
