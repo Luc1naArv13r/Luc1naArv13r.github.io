@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twisted Wonderland Fanfic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&family=Roboto+Slab:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="TWST.css">
+    <script src="TWST.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <h1>Twisted Wonderland</h1>
+        <nav class="navbar">
+            <a href="/index.html" class="nav-button">Home</a>
+            <a href="#" class="nav-button">Welcome to NRC</a>
+            <a href="#" class="nav-button">World/Glossary</a>
+            <a href="#" class="nav-button">Characters</a>
+            <a href="#" class="nav-button">System</a>
+            <a href="#" class="nav-button">Special</a>
+        </nav>
+    </header>
+
+    <main class="wrapper">
+        <h2 class="section-title">Dorm Selection</h2>
+        <!-- Dorm Selection -->
+        <div class="dorm-container">
+            <div class="dorm" onclick="selectDorm('heartslabyul')">
+                <img src="Img/heartslabyul_dormitory-archive.png" alt="Heartslabyul Dorm">
+                <h3>Heartslabyul Dorm</h3>
+                <p>Twisted from <span class="highlight">Alice in Wonderland</span></p>
+            </div>
+            <div class="dorm" onclick="selectDorm('savanaclaw')">
+                <img src="Img/savanaclaw_dormitory-archive.png" alt="Savanaclaw Dorm">
+                <h3>Savanaclaw Dorm</h3>
+                <p>Twisted from <span class="highlight">The Lion King</span></p>
+            </div>
+            <div class="dorm" onclick="selectDorm('octavinelle')">
+                <img src="Img/octavinelle_dormitory-archive.png" alt="Octavinelle Dorm">
+                <h3>Octavinelle Dorm</h3>
+                <p>Twisted from <span class="highlight">The Little Mermaid</span></p>
+            </div>
+        </div>
+
+        <!-- Character Selection -->
+        <div id="character-selection" class="hidden">
+            <h2 class="section-title">Character Selection</h2>
+            <div class="character-grid" id="characters-container">
+                <!-- Characters will be dynamically added here -->
+            </div>
+            <button onclick="goBack()" class="back-button">Back to Dorms</button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <a href="#top" class="action-button">Page Top</a>
+    </footer>
+</body>
+</html>
