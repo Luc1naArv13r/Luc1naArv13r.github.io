@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <title>Tales of Chrystalia - World</title>
+  <link rel="stylesheet" href="World.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="Tales of Chrystalia.html">Book</a></li>
+      <li><a href="Char.html">Characters</a></li>
+      <li><a href="World.html" class="active">World</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <!-- World Introduction Section -->
+    <section id="world-intro" class="section">
+    <img src="#" alt="Chrystalia" class="image-border" >  
+      <h1>Welcome to the World of Chrystalia</h1>
+      <p>The world of Chrystalia is vast, filled with magic, danger, and adventure. From the lush forests of the Diamond Kingdom to the icy reaches of the Obsidian Empire, every land tells its own tale.</p>
+    </section>
+
+    <!-- Notable Locations Section -->
+    <section id="locations" class="section">
+      <h2>Notable Locations</h2>
+      <div class="locations-grid">
+        <div class="location" data-location="1">
+          <img src="ToC/Kingdom,Empire/Diamond Empire/Old Adamante.jpeg" alt="Diamond Castle" class="location-img">
+          <h3>The Old Adamante</h3>
+          <button id="diamond-tribe-btn">View Tribe</button>
+        </div>
+        <div class="location" data-location="2">
+          <img src="obsidian_throne.jpg" alt="Obsidian Throne" class="location-img">
+          <h3>Obsidian Throne</h3>
+          <button id="obsidian-tribe-btn">View Tribe</button>
+        </div>
+        <div class="location" data-location="3">
+          <img src="loria_forest.jpg" alt="Forest of Loria" class="location-img">
+          <h3>Forest of Loria</h3>
+          <button id="loria-tribe-btn">View Tribe</button>
+        </div>
+        <div class="location" data-location="3">
+          <img src="loria_forest.jpg" alt="Forest of Loria" class="location-img">
+          <h3>Forest of Loria</h3>
+          <button id="loria-tribe-btn">View Tribe</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal for Location Pop-up -->
+  <div id="location-tribe-popup" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="tribe-name"></h2>
+      <img id="tribe-img-popup" alt="Tribe Image" class="modal-img">
+      <p id="tribe-info"></p>
+      <h3>Citizens:</h3>
+      <p id="citizens-info"></p>
+    </div>
+  </div>
+
+  <script src="World.js"></script>
+</body>
+</html>

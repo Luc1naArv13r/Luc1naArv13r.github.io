@@ -1,0 +1,258 @@
+/* General Styles */
+body {
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(to bottom, #e0c6f0, #c6d9f8);
+  color: #4a4a4a;
+  margin: 0;
+  padding: 0;
+  line-height: 1.8;
+}
+
+/* Optional: If you want the gradient to extend beyond the container even further */
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Makes the gradient extend for the entire viewport height */
+  background: linear-gradient(to bottom, #e0c6f0, #c6d9f8);
+  z-index: -1; /* Place it behind the content */
+}
+
+/* Navbar */
+.navbar {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-radius: 0 0 1.25rem 1.25rem;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  color: #8a97d0;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  background-color: #d8c9f0;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Container */
+.container {
+  max-width: 90%;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #ffffffe6;
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 20px #0000001a;
+  animation: fadeIn 0.8s ease-out;
+  position: relative; /* Add this for the pseudo-element positioning */
+}
+
+/* Book Section */
+.book-header {
+  display: flex;
+  flex-direction: column; /* Default to vertical stacking */
+  gap: 1rem;
+  align-items: center;
+  border-radius: 1rem;
+  padding: 1rem;
+  animation: slideIn 0.5s ease-out;
+}
+
+.book-cover {
+  width: 100%;
+  max-width: 300px; /* Limit size for smaller screens */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 5px solid #8a97d0;
+}
+
+/* Characters Section */
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid layout */
+  gap: 1.5rem;
+  margin-top: 2rem;
+  animation: fadeIn 1s ease-out;
+}
+
+.character {
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.character:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.character img {
+  width: 100%;
+  max-width: 100px; /* Adjust size for smaller screens */
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #8a97d0;
+}
+
+.character h3 {
+  font-size: 1.2rem;
+  color: #4a4a4a;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Modal (Popup) Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  animation: bounceIn 0.5s ease-out;
+  overflow-y: auto; /* Allow vertical scrolling if content overflows */
+  max-height: 70vh; /* Set maximum height */
+}
+
+/* Character Image and Bio */
+#character-img-popup {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Character Info */
+#character-info {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #4a4a4a;
+  text-align: left;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  color: #8a97d0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #d8c9f0;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .book-header {
+    flex-direction: row; /* Horizontal layout for larger screens */
+  }
+
+  .characters-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Larger character grid */
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar ul li a {
+    font-size: 1.2rem;
+  }
+
+  .book-cover {
+    max-width: 500px; /* Bigger book covers on larger screens */
+  }
+
+  .character img {
+    max-width: 120px;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
