@@ -149,7 +149,7 @@ body.dark .hero p{
   }
 }
 
-/* Responsive Hero Section */
+/* Hero Section Animation */
 .hero {
   text-align: center;
   margin: 10%;
@@ -158,30 +158,56 @@ body.dark .hero p{
   border-radius: 25px;
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(12px);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards, heroFadeIn 1.2s ease-out 0.2s;
 }
 
 .hero h1 {
   color: #ff4081;
   font-size: 3rem;
   font-weight: 700;
+  opacity: 0;
+  animation: fadeIn 1.2s ease-out forwards 0.4s;
 }
 
 .hero p {
   color: #7e57c2;
   font-size: 1.5rem;
+  opacity: 0;
+  animation: fadeIn 1.2s ease-out forwards 0.6s;
 }
 
-@media (max-width: 768px) {
-  .hero {
-    padding: 40px;
+/* Hero Section Fade In & Slide Up */
+@keyframes heroFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
-
-  .hero h1 {
-    font-size: 2.2rem;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  .hero p {
-    font-size: 1.2rem;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Hero Animation for Text Elements */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

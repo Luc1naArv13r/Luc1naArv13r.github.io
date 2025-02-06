@@ -1,0 +1,250 @@
+/* Root Variables */
+:root {
+    --primary-color: #ff79c6;
+    --secondary-color: #bd93f9;
+    --background-light: #f8f8f8;
+    --background-dark: #282a36;
+    --card-light: rgba(255, 255, 255, 0.8);
+    --card-dark: rgba(68, 71, 90, 0.8);
+    --text-light: #444;
+    --text-dark: #f8f8f2;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background: var(--background-dark);
+    color: var(--text-dark);
+}
+
+/* Light Mode */
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+    background-attachment: fixed;
+    background-size: cover;
+    color: #5a4d67;
+    transition: background 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Header (Fixed navbar) */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--primary-color);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+/* Adjust margin-top for content to prevent navbar from overlapping */
+body {
+    margin-top: 80px;
+}
+
+.header h2 {
+    color: white;
+    font-size: 1.8rem;
+    margin-left: 20px;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+  
+.navbar ul li {
+    margin-left: 30px;
+}
+  
+.navbar ul li a {
+    text-decoration: none;
+    color: #ffdfef;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+  
+.navbar ul li a:hover {
+    color: #fff6d8;
+}
+
+/* Main Layout */
+.main-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200%;
+    margin-top: 100px;
+    padding: 20px;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(30px); /* Position slightly down */
+    animation: fadeInUp 1s ease-out forwards; /* Apply animation */
+}
+
+/* Card Styling (Glassmorphism) */
+.card {
+    flex: 1;
+    min-width: 320px;
+    background: var(--card-light);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.dark-mode .card {
+    background: var(--card-dark);
+}
+
+/* Calendar Container (Left Side) */
+.calendar-container {
+    width: 60%; /* Calendar takes up 60% of the container width */
+    height: 650px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, width 0.3s, height 0.3s;
+    opacity: 0; /* Initially hidden */
+    transform: translateX(-30px); /* Position slightly left */
+    animation: slideInLeft 1s ease-out 0.5s forwards; /* Apply animation */
+}
+
+.dark-mode .calendar-container {
+    background: rgba(68, 71, 90, 0.95);
+}
+
+/* List Container (Reminders & Notes - Right Side) */
+.list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 35%; /* List container takes up 35% of the width */
+    height: 550px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Initially hidden */
+    transform: translateX(30px); /* Position slightly right */
+    animation: slideInRight 1s ease-out 0.7s forwards; /* Apply animation */
+}
+
+.dark-mode .list-container {
+    background: rgba(68, 71, 90, 0.95);
+}
+
+/* Reminder List */
+.reminder-list {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--card-light);
+}
+
+.dark-mode .reminder-list {
+    background: var(--card-dark);
+}
+
+/* Notes */
+.notes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.note {
+    width: 200px;
+    padding: 10px;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+button {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* Smooth Entrance Animations */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .calendar-container {
+        width: 80%; /* Adjust calendar width for smaller screens */
+        height: 450px;
+    }
+
+    .list-container {
+        width: 100%; /* List container takes full width on smaller screens */
+    }
+
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .calendar-container {
+        width: 100%;
+        height: 350px;
+    }
+
+    .list-container {
+        width: 100%;
+    }
+}

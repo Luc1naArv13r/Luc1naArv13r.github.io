@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reila Arvier</title>
+  <link rel="stylesheet" href="Note.css">
+  <script defer src="Note.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.global.min.js"></script>
+</head>
+<body>
+  <!-- Header Navigation -->
+  <header class="header">
+    <div class="logo"><h2>Reila Arvier</h2></div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">About</a></li>
+        <li><button id="theme-toggle">🌙 Toggle Theme</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <section class="card calendar-container">
+        <h2>📅 Calendar</h2>
+        <div id='calendar'></div>
+    </section>
+
+    <section class="card">
+        <h2>📝 Reminder List</h2>
+        <div id="reminderList" class="reminder-list"></div>
+        <input type="datetime-local" id="reminderDate">
+        <textarea id="newReminder" placeholder="Write your reminder..."></textarea>
+        <button id="addReminderBtn">Add Reminder</button>
+    </section>
+
+    <section class="card">
+        <h2>📌 Notes</h2>
+        <div class="notes-container" id="notesList"></div>
+        <textarea id="newNote" placeholder="Write your note here..."></textarea>
+        <button id="addNoteBtn">Add Note</button>
+    </section>
+</main>
+
+</body>
+</html>
