@@ -8,47 +8,47 @@ body {
   background-attachment: fixed;
   background-size: cover;
   color: #5a4d67;
-  transition: background 0.5s ease-in-out;
+  transition: background 0.5s ease-in-out; /* Transition for background */
 }
 
 /* Responsive Typography */
 html {
-  font-size: 16px; /* Base font size */
+  font-size: 16px;
 }
 
 @media (max-width: 768px) {
   html {
-    font-size: 14px; /* Adjust font size for smaller screens */
+      font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
   html {
-    font-size: 12px; /* Even smaller font for compact screens */
+      font-size: 12px;
   }
 }
 
-/* Dark theme */
+/* Dark Theme */
 body.dark {
-  background: linear-gradient(135deg, #7b2e3e, #5e2c1f, #6d1d53, #2a4b6f); /* Darker gradient for dark theme */
-  color: #e0e0e0; /* Light gray text for better contrast */
-} 
+  background: linear-gradient(135deg, #7b2e3e, #5e2c1f, #6d1d53, #2a4b6f);
+  color: #e0e0e0;
+}
 
 body.dark .header {
-  background: rgba(92, 92, 92, 0.9); /* Darker header background */
+  background: rgba(92, 92, 92, 0.9);
 }
 
 body.dark .hero {
-  background: rgba(100, 100, 100, 0.8); /* Darker background for hero */
+  background: rgba(100, 100, 100, 0.8);
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 body.dark .navbar ul li a {
-  color: #e0e0e0; /* Lighter text color in dark theme */
+  color: #e0e0e0;
 }
 
 body.dark .book {
-  background: #a57c85; /* Darker pastel book background */
+  background: #a57c85;
 }
 
 body.dark .book:hover {
@@ -57,26 +57,26 @@ body.dark .book:hover {
 }
 
 body.dark .modal-content {
-  background: linear-gradient(135deg, #6a1b9a, #9c4b94); /* Darker gradient for modal */
+  background: linear-gradient(135deg, #6a1b9a, #9c4b94);
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 body.dark #theme-toggle {
-  background-color: rgba(76, 175, 80, 0.8); /* Green button for dark theme */
+  background-color: #8B0000; /* Dark theme red color */
 }
 
-body.dark button {
-  background: linear-gradient(145deg, #8b4a54, #864373); /* Dark button gradient */
+body.dark button, body.dark a {  /* Apply to both buttons and links */
+  background: linear-gradient(145deg, #8b4a54, #864373);
 }
 
 body.dark .books-grid {
-  background-color: #4f4f4f; /* Darker background for books section */
+  background-color: #4f4f4f;
 }
 
 body.dark .book img {
   border-radius: 8px;
   margin-bottom: 10px;
-  filter: brightness(0.85); /* Adjust image brightness in dark theme */
+  filter: brightness(0.85);
 }
 
 body.dark .card {
@@ -87,12 +87,11 @@ body.dark .hero h1 {
   color: #ffdde8;
 }
 
-body.dark .hero p{
+body.dark .hero p {
   color: #b0a1ca;
 }
-/* End of dark theme */
 
-/* Responsive Header */
+/* Header */
 .header {
   position: fixed;
   top: 0;
@@ -106,6 +105,7 @@ body.dark .hero p{
   justify-content: space-between;
   align-items: center;
   border-radius: 15px;
+  transition: background 0.5s ease; /* Transition for header background */
 }
 
 .header .logo h2 {
@@ -130,26 +130,25 @@ body.dark .hero p{
   color: #ffdfef;
   font-size: 1.2rem;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease; /* Transition for link color */
 }
 
 .navbar ul li a:hover {
   color: #fff6d8;
 }
 
-/* Responsive Navbar */
 @media (max-width: 768px) {
   .navbar ul {
-    flex-direction: column;
-    align-items: center;
+      flex-direction: column;
+      align-items: center;
   }
 
   .navbar ul li {
-    margin: 10px 0;
+      margin: 10px 0;
   }
 }
 
-/* Hero Section Animation */
+/* Hero Section */
 .hero {
   text-align: center;
   margin: 10%;
@@ -161,6 +160,7 @@ body.dark .hero p{
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s ease-out forwards, heroFadeIn 1.2s ease-out 0.2s;
+  transition: background 0.5s ease, box-shadow 0.5s ease; /* Transitions for hero */
 }
 
 .hero h1 {
@@ -178,40 +178,39 @@ body.dark .hero p{
   animation: fadeIn 1.2s ease-out forwards 0.6s;
 }
 
-/* Hero Section Fade In & Slide Up */
+
 @keyframes heroFadeIn {
   0% {
-    opacity: 0;
-    transform: translateY(20px);
+      opacity: 0;
+      transform: translateY(20px);
   }
   100% {
-    opacity: 1;
-    transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
   }
 }
 
 @keyframes fadeIn {
   0% {
-    opacity: 0;
+      opacity: 0;
   }
   100% {
-    opacity: 1;
+      opacity: 1;
   }
 }
 
-/* Hero Animation for Text Elements */
 @keyframes fadeInUp {
   0% {
-    opacity: 0;
-    transform: translateY(20px);
+      opacity: 0;
+      transform: translateY(20px);
   }
   100% {
-    opacity: 1;
-    transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
   }
 }
 
-/* Responsive Books Grid */
+/* Books Grid */
 .books-grid {
   margin: 10%;
   display: grid;
@@ -222,6 +221,7 @@ body.dark .hero p{
   border-radius: 15px;
   box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
+  transition: background 0.5s ease; /* Transition for books-grid background */
 }
 
 .book {
@@ -232,7 +232,7 @@ body.dark .hero p{
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 200px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease; /* Transition for book */
 }
 
 .book img {
@@ -241,6 +241,7 @@ body.dark .hero p{
   height: auto;
   border-radius: 8px;
   margin-bottom: 10px;
+  transition: filter 0.5s ease; /* Transition for image filter */
 }
 
 .book:hover {
