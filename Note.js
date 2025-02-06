@@ -1,5 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
-    let calendarEl = document.getElementById('calendar');
+// Note.js
+import { db, addReminder, removeReminder, loadReminders } from './firebase-config.js';
+
+// Function to initialize the calendar (separate function)
+function initializeCalendar(calendarEl) {
     let calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
         selectable: true,
@@ -8,16 +11,34 @@ document.addEventListener('DOMContentLoaded', function() {
         dateClick: function(info) {
             let reminderText = prompt('Enter reminder for ' + info.dateStr);
             if (reminderText) {
-                addReminder(reminderText, info.dateStr, calendar);
+                addReminder(reminderText, info.dateStr, calendar); // Use imported function
             }
         },
         eventClick: function(info) {
             if (confirm('Do you want to delete this reminder?')) {
-                removeReminder(info.event.id, calendar);
+                removeReminder(info.event.id, calendar); // Use imported function
             }
         }
     });
     calendar.render();
+    return calendar; // Return the calendar instance
+}
+
+// Wait for both the DOM and Firebase to be ready
+Promise.all([
+    new Promise(resolve => document.addEventListener('DOMContentLoaded', resolve)),
+    // Add a promise to check if db is available.
+    new Promise(resolve => {
+        const checkDb = setInterval(() => {
+            if (db) {
+                clearInterval(checkDb);
+                resolve();
+            }
+        }, 100); // Check every 100ms
+    })
+]).then(() => {
+    const calendarEl = document.getElementById('calendar');
+    const calendar = initializeCalendar(calendarEl);  // Initialize calendar
 
     document.getElementById("addReminderBtn").addEventListener("click", function() {
         let reminderText = document.getElementById("newReminder").value;
@@ -25,61 +46,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (reminderText.trim() && reminderDate) {
             addReminder(reminderText, reminderDate, calendar);
             document.getElementById("newReminder").value = "";
+            document.getElementById("reminderDate").value = "";
         }
     });
+
+    loadReminders(calendar); // Load reminders after calendar is initialized
 });
 
-function addReminder(text, date, calendar) {
-    let event = calendar.addEvent({ 
-        title: text, 
-        start: date,
-        id: Date.now().toString() // Unique ID for deletion
-    });
 
-    let reminderList = document.getElementById("reminderList");
-    let reminderItem = document.createElement("div");
-    reminderItem.classList.add("reminder-item");
-    reminderItem.setAttribute("data-event-id", event.id);
-    reminderItem.textContent = text + " - " + date;
+// ... rest of your Note.js code (theme toggle, etc.) ...
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
 
-    let deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete";
-    deleteBtn.style.marginLeft = "10px";
-    deleteBtn.onclick = function() {
-        removeReminder(event.id, calendar);
-    };
-    reminderItem.appendChild(deleteBtn);
-    reminderList.appendChild(reminderItem);
-}
-
-function removeReminder(eventId, calendar) {
-    let event = calendar.getEventById(eventId);
-    if (event) {
-        event.remove();
-    }
-
-    let reminderItems = document.querySelectorAll(".reminder-item");
-    reminderItems.forEach(item => {
-        if (item.getAttribute("data-event-id") === eventId) {
-            item.remove();
-        }
-    });
-}
-
-document.getElementById("addNoteBtn").addEventListener("click", function() {
-    let noteText = document.getElementById("newNote").value;
-    if (noteText.trim()) {
-        let note = document.createElement("div");
-        note.className = "note";
-        note.textContent = noteText;
-        let deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "Delete";
-        deleteBtn.style.marginLeft = "10px";
-        deleteBtn.onclick = function() {
-            note.remove();
-        };
-        note.appendChild(deleteBtn);
-        document.getElementById("notesList").appendChild(note);
-        document.getElementById("newNote").value = "";
-    }
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
 });
