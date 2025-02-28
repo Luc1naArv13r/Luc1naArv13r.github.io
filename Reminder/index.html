@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes & Reminders</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+  <script defer src="app.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo"><h2>Reila Arvier</h2></div>
+        <nav class="navbar">
+          <ul>
+            <li><a href="/index.html"><button>Home</button></a></li>
+            <li>
+                <div class="toggle-switch">
+                    <div class="toggle-switch__ellipse-1"></div>
+                </div>
+            </li>
+          </ul>
+        </nav>
+</header>
+<div class="first-container">
+  <div class="container">
+    <!-- Calendar Section -->
+    <div class="calendar-section">
+      <h2>Calendar</h2>
+      <div id="calendar"></div>
+    </div>
+    
+    <!-- Reminder & Notes Section -->
+    <div class="content-section">
+      <div class="reminder-section">
+        <h2>Reminders</h2>
+        <input type="text" id="reminder-input" placeholder="Add a reminder...">
+        <input type="date" id="reminder-date">
+        <button id="add-reminder">Add Reminder</button>
+        <ul id="reminder-list"></ul>
+      </div>
+      
+      <div class="notes-section">
+        <h2>Notes</h2>
+        <div class="notes-list" id="notes-list"></div>
+      </div>
+    </div>
+
+      <!-- Floating Note Button -->
+      <button id="open-note-editor" class="note-btn">
+          <img id="fab-icon" src="FAB.png">
+      </button>  
+</div>
+  
+    
+    <!-- Note Editor Modal -->
+    <div id="note-editor" class="note-editor hidden">
+      <textarea id="note-content" placeholder="Write your note..."></textarea>
+      <button id="save-note">Save</button>
+      <button id="close-note-editor">Close</button>
+    </div>
+  </div>
+</body>
+</html>

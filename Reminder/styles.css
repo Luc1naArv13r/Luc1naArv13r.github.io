@@ -1,0 +1,381 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+::-webkit-scrollbar {
+    display: none;
+  }
+
+body {
+    background: #fcf1ff;
+    color: #333;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+  /* Dark Theme for Page */
+  body.dark-theme {
+    background: #504553;
+    color: #ffffff;
+  }
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #e2e7ffc0;
+    padding: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    transition: background 0.5s ease;
+}
+
+.header .logo h2 {
+    font-size: 2rem;
+    color: #3b3c88;
+    font-weight: 700;
+}
+
+body.dark .header {
+    background: #505677c0;
+}
+
+body.dark .header .logo h2 {
+    color: #9799f7;
+}
+
+.navbar {
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.navbar ul li {
+    margin-left: 10px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #703854;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+body.dark .navbar ul li a {
+    color: #e0e0e0;
+}
+
+.navbar ul li a:hover {
+    color: #291a5e;
+    transform: scale(1.05);
+}
+
+/* Responsive Buttons */
+button {
+    padding: 1rem 2rem;
+    border: none;
+    background: linear-gradient(145deg, #ebd6ff, #e3b9ff);
+    color: #6e1250;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 35px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+body.dark .button{
+    background: linear-gradient(145deg, #615969, #5c4b68);
+    color: #6e1250;
+}
+
+button:hover {
+    transform: scale(1.05);
+
+}
+
+/* Containers */
+.first-container {
+    width: 80%;
+    height: 80%;
+    max-width: 1200%;
+    margin: 6rem auto 3rem;
+    padding: 1.5rem;
+    background: #ffffffe6;
+    border-radius: 1.5rem;
+    box-shadow: 0 6px 20px #0000001a;
+    animation: fadeIn 0.8s ease-out;
+    overflow: auto;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Sections */
+.calendar-section {
+    flex: 1;
+    width: 100%;
+    min-width: 300px;
+    background: #ffffff;
+    padding: 20px;
+    overflow: auto;
+    border-right: 2px solid #ddd;
+}
+
+.content-section {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow: auto;
+}
+
+.reminder-section, .notes-section {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.notes-list {
+    height: 250px;
+    overflow-y: auto;
+}
+
+/* Floating Button */
+.note-btn {
+    position: fixed;
+    right: 60px;
+    bottom: 60px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+
+.note-btn:hover {
+    transform: scale(1.1);
+}
+
+    
+
+/* Note Editor */
+.note-editor {
+    position: fixed;
+    right: 20px;
+    bottom: 80px;
+    width: 500px;
+    height: 500px;
+    background: white; /* Ensure a solid background */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    display: flex;
+    animation: bounceIn 0.5s ease-out;
+    flex-direction: column;
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+
+@keyframes bounceIn {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+
+  
+.note-editor.hidden {
+    display: none;
+    animation: bounceOut 0.4s ease-in forwards;
+}
+
+@keyframes bounceOut {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(0.9);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
+
+.note-editor textarea {
+    flex: 1;
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 10px;
+    resize: none;
+}
+
+.note-editor button {
+    margin-top: 10px;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+#save-note {
+    background: #6200ea;
+    color: white;
+}
+
+#close-note-editor {
+    background: #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+    .calendar-section, .content-section {
+        width: 100%;
+        border-right: none;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    .navbar ul li {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .button {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+    .note-editor {
+        width: 90%;
+        right: 5%;
+    }
+    .note-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+}
+
+
+.toggle-switch,
+.toggle-switch * {
+  box-sizing: border-box;
+}
+.toggle-switch {
+  background: #f9e2a5;
+  border-radius: 100px;
+  border-style: solid;
+  border-color: #dec992;
+  border-width: 1px;
+  padding: 4px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 64px;
+  position: relative;
+  transition: background 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+.toggle-switch__ellipse-1 {
+  background: #ffffff;
+  border-radius: 50%;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+
+}
+
+/* Dark Mode */
+.toggle-switch.state-on {
+    position:sticky;
+    background: #274f8a !important;  /* Correct background */
+    border-color: #a0c0ef !important;  /* Correct border color */
+    justify-content: flex-start;
+  }
+  
+  /* Toggle Button Dark Theme */
+  body.dark-theme .toggle-switch {
+    background: #555;
+    border-color: #777;
+  }
+  
+  body.dark-theme .toggle-switch__ellipse-1 {
+    background: #222;
+  }
+  
+  body.dark-theme .toggle-switch.state-on {
+    background: #0a84ff;
+    border-color: #66a3ff;
+  }
+  
+  body.dark-theme .toggle-switch.state-on .toggle-switch__ellipse-1 {
+    background: #ffffff;
+  }
+  .toggle-switch.state-on .toggle-switch__ellipse-1 {
+    background: #ffffff;
+    transform: translateX(30px);
+  }
+  
+/* Animasi Fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    animation: fadeIn 0.8s ease-in-out;
+}
