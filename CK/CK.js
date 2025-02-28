@@ -50,3 +50,33 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+  
+  document.addEventListener("mousemove", (e) => {
+    for (let i = 0; i < 2; i++) { // More whisps for a denser effect
+        let wisp = document.createElement("div");
+        wisp.className = "wisp";
+        document.body.appendChild(wisp);
+
+        // Random size variation
+        let size = Math.random() * 10 + 8;
+        wisp.style.width = `${size}px`;
+        wisp.style.height = `${size}px`;
+
+        // Positioning near cursor with a slight offset
+        let xOffset = (Math.random() - 0.5) * 30;
+        let yOffset = (Math.random() - 0.5) * 30;
+        wisp.style.left = `${e.pageX + xOffset}px`;
+        wisp.style.top = `${e.pageY + yOffset}px`;
+
+        // Create a floating effect
+        let moveX = (Math.random() - 0.5) * 60;
+        let moveY = (Math.random() - 0.5) * 60;
+        setTimeout(() => {
+            wisp.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.5)`;
+            wisp.style.opacity = "0";
+        }, 100);
+
+        // Remove wisp after animation
+        setTimeout(() => wisp.remove(), 1000);
+    }
+});
