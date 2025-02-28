@@ -8,19 +8,25 @@
     <script src="https://cdn.jsdelivr.net/npm/uuid@9.0.0/dist/umd/uuid.min.js"></script>  </head>
 <body>
     <header class="header">
-        <div class="logo"><h2>Reila Arvier</h2></div>
+        <div class="logo"><h2>Notes and Reminder</h2></div>
         <nav class="navbar">
             <ul>
-                <li><a href="index.html">About</a></li>  <li><button id="theme-toggle">🌙 Toggle Theme</button></li>
+                <li><a href="index.html"><button>Home</button></a></li>
+                <li><button id="theme-toggle">🌙</button></li>
             </ul>
         </nav>
     </header>
 
+    <div class="container"> 
     <main class="main-container">
+        <div class="left">
         <section class="card calendar-container">
             <h2>📅 Calendar</h2>
-            <div id='calendar'></div>  </section>
+            <div id='calendar'></div> 
+        </section>
+        </div>
 
+        <div class="right">
         <section class="card">
             <h2>📝 Reminder List</h2>
             <div id="reminderList" class="reminder-list"></div>  <input type="datetime-local" id="reminderDate">
@@ -33,7 +39,8 @@
             <div class="notes-container" id="notesList"></div>  <textarea id="newNote" placeholder="Write your note here..."></textarea>
             <button id="addNoteBtn">Add Note</button>
         </section>
+    </div>
     </main>
-
+</div>
     </body>
 </html>

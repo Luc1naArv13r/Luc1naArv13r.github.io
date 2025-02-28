@@ -1,6 +1,6 @@
 /* Root Variables */
 :root {
-    --primary-color: #ff79c6;
+    --primary-color: #d1b9ffb3;
     --secondary-color: #bd93f9;
     --background-light: #f8f8f8;
     --background-dark: #282a36;
@@ -10,6 +10,10 @@
     --text-dark: #f8f8f2;
 }
 
+::-webkit-scrollbar {
+    display: none;
+  }
+
 /* Dark Mode */
 body.dark-mode {
     background: var(--background-dark);
@@ -18,11 +22,12 @@ body.dark-mode {
 
 /* Light Mode */
 body {
+    display: flex;
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+    background: linear-gradient(135deg,#c6e2ff, #eed4ff, #ffddfdd9);
     background-attachment: fixed;
     background-size: cover;
     color: #5a4d67;
@@ -53,7 +58,7 @@ body {
 }
 
 .header h2 {
-    color: white;
+    color: #f1ffff;
     font-size: 1.8rem;
     margin-left: 20px;
 }
@@ -84,7 +89,8 @@ body {
 /* Main Layout */
 .main-container {
     display: flex;
-    gap: 20px;
+    flex:auto;
+    gap: 300px;
     justify-content: center;
     align-items: flex-start;
     width: 100%;
@@ -95,6 +101,8 @@ body {
     transform: translateY(30px); /* Position slightly down */
     animation: fadeInUp 1s ease-out forwards; /* Apply animation */
 }
+
+
 
 /* Card Styling (Glassmorphism) */
 .card {
@@ -115,8 +123,8 @@ body {
 
 /* Calendar Container (Left Side) */
 .calendar-container {
-    width: 60%; /* Calendar takes up 60% of the container width */
-    height: 650px;
+    width: 400px; /* Calendar takes up 60% of the container width */
+    height: 400px;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     padding: 20px;
@@ -153,6 +161,7 @@ body {
     background: rgba(68, 71, 90, 0.95);
 }
 
+
 /* Reminder List */
 .reminder-list {
     max-height: 300px;
@@ -183,20 +192,61 @@ body {
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Buttons */
+/* Responsive Buttons */
 button {
-    background: var(--secondary-color);
-    color: white;
+    padding: 1rem 2rem;
     border: none;
-    padding: 12px;
-    border-radius: 10px;
+    background: linear-gradient(145deg, #f9d6ff, #f3b9ff);
+    color: #6e1250;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 35px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  body.dark button{
+    color: #eeb9dc;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  /* Style for buttons that are links */
+  button a {
+    text-decoration: none; /* Remove underline */
+    color: #6e1250; /* Set text color to white */
+  }
+  body.dark button a {
+    text-decoration: none; /* Remove underline */
+    color: #eebede; /* Set text color to white */
+  }
+  
+  body.dark button, body.dark a {  /* Apply to both buttons and links */
+    background: linear-gradient(145deg, #8b4a54, #864373);
+  }
+
+.container {
+    display: grid;
+    grid-gap: 20%;
+    width: 90%;
+    max-width: 1000px;
 }
 
-button:hover {
-    background: var(--primary-color);
-    transform: scale(1.05);
+.left {
+    background-color: #ccc;
+    width: 150px;
+    height: 400px;
+}
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 /* Smooth Entrance Animations */

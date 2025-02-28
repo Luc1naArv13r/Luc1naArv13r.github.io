@@ -1,0 +1,461 @@
+/* Base Styles */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg,#c6e2ff, #eed4ff, #ffddfdd9);
+  background-attachment: fixed;
+  background-size: cover;
+  color: #5a4d67;
+  transition: background 0.5s ease-in-out; /* Transition for background */
+}
+
+body.dark {
+  background: linear-gradient(135deg,#1f2730, #2b1d35, #261026d9);
+  color: #e0e0e0;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #e2e7ffc0;
+  padding: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  transition: background 0.5s ease; /* Transition for header background */
+}
+
+.header .logo h2 {
+  font-size: 2rem;
+  color: #3b3c88;
+  font-weight: 700;
+}
+
+body.dark .header {
+  background: #505677c0;
+}
+
+body.dark .header .logo h2 {
+  font-size: 2rem;
+  color: #9799f7;
+  font-weight: 700;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navbar ul li {
+  margin-left: 10px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #703854;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: color 0.3s ease; /* Transition for link color */
+}
+
+body.dark .navbar ul li a {
+  color: #e0e0e0;
+
+}
+
+.navbar ul li a:hover {
+  color: #291a5e;
+  transform: scale(1.05);
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  width:  auto;
+  margin: 4%;
+  background: #ffffff;
+  padding: 5%;
+  border-radius: 25px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards, heroFadeIn 1.2s ease-out 0.2s;
+  transition: background 0.5s ease, box-shadow 0.5s ease; /* Transitions for hero */
+}
+
+body.dark .hero {
+  background: rgba(100, 100, 100, 0.8);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero h1 {
+  color: #9d4cb6;
+  font-size: 3rem;
+  font-weight: 700;
+  opacity: 0;
+  animation: fadeIn 1.2s ease-out forwards 0.4s;
+}
+
+body.dark .hero h1 {
+  color: #ffdde8;
+}
+
+.hero p {
+  color: #8063b3;
+  font-size: 1.5rem;
+  opacity: 0;
+  animation: fadeIn 1.2s ease-out forwards 0.6s;
+}
+
+body.dark .hero p {
+  color: #b0a1ca;
+}
+
+/* Profile Card */
+.card {
+  margin: 4%;
+  background: #ffffffd9;
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+  opacity: 1;
+  backdrop-filter: blur(8px);
+}
+
+body.dark .card {
+  background: #4d4d4dd9;
+}
+
+.books-grid {
+  margin: 10% auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 80px; /* Reduce large gaps */
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.5s ease;
+  width: 90%;
+  max-width: 1200px; /* Limit the width */
+}
+
+.book {
+  background: linear-gradient(150deg, #dcf1ff, #ffe5f7, #f0dcff);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+  width: 90%;
+  max-width: 250px;
+  margin: auto; /* Center books in grid */
+}
+
+.book img {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.book:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.book img:hover {
+  transform: scale(1.05);
+}
+
+body.dark .books-grid {
+  background: rgba(50, 50, 50, 0.8);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark .book {
+  background: linear-gradient(200deg, #375a71, #532344, #533869);
+  color: white;
+}
+
+/* Responsive Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #faebff, #f0beff, #edc0ff);
+  color: #6e1250;
+  padding: 35px;
+  border-radius: 20px;
+  text-align: center;
+  width: 80%;
+  max-width: 550px;
+  backdrop-filter: blur(12px); 
+}
+
+body.dark .modal-content {
+  background: linear-gradient(135deg, #7c3d3e, #69315b, #5f372c);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  color: #eeb9dc;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 2rem;
+  color: #6e1250;
+  cursor: pointer;
+}
+
+
+body.dark .close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 2rem;
+  color: #eeb9dc;
+  cursor: pointer;
+}
+
+/* Responsive Buttons */
+button {
+  padding: 1rem 2rem;
+  border: none;
+  background: linear-gradient(145deg, #f9d6ff, #f3b9ff);
+  color: #6e1250;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 35px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+body.dark button{
+  color: #eeb9dc;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Style for buttons that are links */
+button a {
+  text-decoration: none; /* Remove underline */
+  color: #6e1250; /* Set text color to white */
+}
+body.dark button a {
+  text-decoration: none; /* Remove underline */
+  color: #eebede; /* Set text color to white */
+}
+
+body.dark button, body.dark a {  /* Apply to both buttons and links */
+  background: linear-gradient(145deg, #8b4a54, #864373);
+}
+
+
+/* Apply animations when switching tabs */
+.tab-content {
+  display: none;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-content.slide-left {
+  animation: slideInLeft 0.4s ease-in-out;
+}
+
+.tab-content.slide-right {
+  animation: slideInRight 0.4s ease-in-out;
+}
+
+
+#theme-toggle {
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+body.dark #theme-toggle {
+  background-color: #8B0000; /* Dark theme red color */
+}
+
+/*Animation sections*/
+
+/* Responsive Typography */
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  html {
+      font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+      font-size: 12px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  /* Add your styles for max-width: 768px here */
+}
+
+@keyframes heroFadeIn {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+
+@media (max-width: 480px) {
+  .book {
+    max-width: 150px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tab Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tab-button {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+}
+
+/* Smooth Icon Fade Animation */
+.fade-out {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+}

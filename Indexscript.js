@@ -36,25 +36,43 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   });
 
+  // Theme Toggle (With Smooth Icon Animation)
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+const body = document.body;
+
+// Function to smoothly change icon
+function changeIcon(newIcon) {
+    themeIcon.classList.add('fade-out'); // Start fade-out animation
+    setTimeout(() => {
+        themeIcon.textContent = newIcon; // Change icon
+        themeIcon.classList.remove('fade-out'); // Remove fade-out animation
+        themeIcon.classList.add('fade-in'); // Start fade-in animation
+        setTimeout(() => {
+            themeIcon.classList.remove('fade-in'); // Remove fade-in animation after transition
+        }, 300);
+    }, 200); // Adjust delay to sync with CSS animation
+}
 
   // Theme Toggle (Corrected and Improved)
-  const themeToggle = document.getElementById('theme-toggle');
-  const body = document.body;
-
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme) {
       body.classList.add(savedTheme);
+      themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙'; // Change icon
   } else {
       body.classList.add('light'); // Default theme
+      themeIcon.textContent = '🌙'; // Default moon icon
   }
 
   themeToggle.addEventListener('click', function() {
       body.classList.toggle('dark');
 
       if (body.classList.contains('dark')) {
-          localStorage.setItem('theme', 'dark');
-      } else {
-          localStorage.setItem('theme', 'light');
-      }
+        localStorage.setItem('theme', 'dark');
+        themeIcon.textContent = '☀️'; // Change to sun icon in dark mode
+    } else {
+        localStorage.setItem('theme', 'light');
+        themeIcon.textContent = '🌙'; // Change to moon icon in light mode
+    }
   });
 });
