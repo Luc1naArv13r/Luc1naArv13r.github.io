@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Event listeners for tribe buttons
-  document.getElementById('diamond-tribe-btn').addEventListener('click', () => loadTribeData('Old Adamante'));
+  document.getElementById('diamond-tribe-btn').addEventListener('click', () => loadTribeData('Old_Adamante'));
   document.getElementById('obsidian-tribe-btn').addEventListener('click', () => loadTribeData('obsidian'));
   document.getElementById('loria-tribe-btn').addEventListener('click', () => loadTribeData('loria'));
 
