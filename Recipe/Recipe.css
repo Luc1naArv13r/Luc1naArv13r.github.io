@@ -1,0 +1,127 @@
+body {
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(to bottom, #f8e8d8, #f3d2b2);
+    color: #4a2c2a;
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+}
+
+.navbar {
+    background: rgba(255, 248, 240, 0.9);
+    padding: 1rem 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-radius: 0 0 1.25rem 1.25rem;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar ul li a {
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    color: #8b5e3c;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .navbar ul li a:hover {
+    background-color:#8b5e3c;
+    color: white;
+    transform: translateY(-3px);
+  }
+.container {
+    max-width: 60%;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #fff8f0;
+    border-radius: 1.5rem;
+    box-shadow: 0 6px 20px #0000001a;
+}
+
+.character-text h1, .character-text h2 {
+    color: #8b5e3c;
+}
+
+.tabs{
+    display:flexbox;
+    background: #ffffffe6;
+    padding: 1rem;
+    position: sticky;
+    z-index: 1000;
+    }
+    .tabs ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        }
+        
+.tabs ul li a {
+color: #b07a5c;
+background-color: #fce5cd;
+text-decoration: none;
+font-family: 'Playfair Display', serif;
+font-weight: bold;
+font-size: 1rem;
+text-transform: uppercase;
+padding: 0.5rem 1rem;
+border-radius: 2rem;
+transition: all 0.3s ease;
+}
+
+.tabs ul li a:hover {
+    background-color: #e5c29f;
+    color: white;
+}
+
+.tab-link.active {
+    background-color: #e5c29f;
+    color: white;
+    border-bottom: 3px solid #8b5e3c;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #e5c29f; /* Warna utama */
+    color: #8b5e3c;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.button:hover {
+    background-color: #b07a5c; /* Warna saat hover */
+    color:white;
+    transform: translateY(-2px);
+}
+#timer {
+    font-size: 5rem; /* Ukuran teks lebih besar */
+    font-weight: bold;
+    text-align: center;
+    color: #d9534f;
+    margin-top: 20px;
+}
