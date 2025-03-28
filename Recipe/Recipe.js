@@ -26,8 +26,6 @@ if (tabLinks.length > 0) {
     switchTab(tabLinks[0].getAttribute('data-tab'));
 }
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const characters = document.querySelectorAll('.character');
   const modal = document.getElementById('character-popup');
@@ -35,6 +33,59 @@ document.addEventListener("DOMContentLoaded", () => {
   const characterName = document.getElementById('character-name');
   const characterImg = document.getElementById('character-img-popup');
   const characterInfo = document.getElementById('character-info');
+  
+  const characterProfiles = {
+    1: {
+      name: " Tepung Terigu Serbaguna & Gula Halus",
+      img: "IMG_3901.jpeg",
+      bio: `
+      <strong>Age</strong>: 18<br>
+      Height: 150 cm tall<br>
+      Gender: female<br>
+      Race: human<br><br>
+      
+      Once a shy and fragile girl, Reila Arvier comes from a long line of knights and was trained to wield a weapon 
+      from a young age. She has always been motherly and nurturing, taking on the responsibility of raising her younger 
+      siblings, Ren and Rena, after their parents passed away and their oldest brother suddenly disappeared. Reila adores 
+      children, and in the absence of their parents, she naturally stepped into the role of a mother figure for the twins.<br>
+
+      To Aaron, however, Reila is more than just a motherly presence; she is someone he deeply cherishes. Their bond goes beyond 
+      familial warmth; Reila has cared for him in a way that feels almost akin to that of a devoted partner. She has loved him for 
+      a long time, but since Lucid is Aaron’s close friend, she chooses to keep her feelings hidden, unwilling to risk their friendship.`
+    },
+    2: {
+      name: "Aaron",
+      img: "IMG_3900.jpeg",
+      bio: `<h2>Aaron Grey</h2><br>
+      Age: 23
+      Height: 200 cm<br>
+      Gender: Male<br>
+      Race: human<br><br>
+      
+      As the adopted son of the Grey family and the younger brother of Kieran Grey, Aaron has always questioned his origins. 
+      His striking diamond-colored eyes set him apart in the capital, making him feel like an outsider. However, his adoptive 
+      parents embraced him as their own without hesitation, never treating him any differently.<br><br>
+
+      Aaron grew close to the Arvier family, drawn to them by a sense of familiarity—after all, the Arviers were known for their 
+      rare blue-purple crystal eyes. Through his bond with the eldest Arvier, Aaron became deeply connected to the family, especially 
+      with Ren and Rena, whom he cared for as if they were his own siblings. But Reila was different; she held a special place in his 
+      heart. His connection with her went deeper than mere friendship, though he never found the words to express it.<br><br>
+
+      Before his disappearance, Lucid entrusted Aaron with a promise: if anything ever happened to him, Aaron would look after the rest 
+      of the Arvier family. He honored that promise without hesitation. Whenever possible, he would join them for breakfast, lunch, or 
+      dinner—sometimes even staying the night, falling asleep on the living room couch as if he were a part of their household.<br><br>`
+    },
+    3: {
+      name: "Kieran",
+      img: "download (2).jpeg",
+      bio: `...`
+    },
+    4: {
+      name: "Serena",
+      img: "IMG_3904.jpeg",
+      bio: `...`
+    }
+  };
 
   characters.forEach(character => {
     character.addEventListener('click', () => {
@@ -68,3 +119,54 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+ //timer application//
+ let timeRemaining = 0;
+ let timerInterval;
+ const timerElement = document.getElementById('timer');
+
+ function updateTimerDisplay() {
+     let hours = Math.floor(timeRemaining / 3600);
+     let minutes = Math.floor((timeRemaining % 3600) / 60);
+     let seconds = timeRemaining % 60;
+     timerElement.textContent = 
+         (hours < 10 ? '0' : '') + hours + ":" +
+         (minutes < 10 ? '0' : '') + minutes + ":" +
+         (seconds < 10 ? '0' : '') + seconds;
+ }
+
+ function setTimer() {
+     let h = parseInt(document.getElementById('hours').value) || 0;
+     let m = parseInt(document.getElementById('minutes').value) || 0;
+     let s = parseInt(document.getElementById('seconds').value) || 0;
+     timeRemaining = (h * 3600) + (m * 60) + s;
+     updateTimerDisplay();
+ }
+
+ function startTimer() {
+     if (!timerInterval) {
+         timerInterval = setInterval(() => {
+             if (timeRemaining > 0) {
+                 timeRemaining--;
+                 updateTimerDisplay();
+             } else {
+                 clearInterval(timerInterval);
+                 alert("Times!");
+             }
+         }, 1000);
+     }
+ }
+
+ function pauseTimer() {
+     clearInterval(timerInterval);
+     timerInterval = null;
+ }
+
+ function resetTimer() {
+     clearInterval(timerInterval);
+     timerInterval = null;
+     timeRemaining = 0;
+     updateTimerDisplay();
+ }
+
+ updateTimerDisplay();
