@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="eng">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,9 +20,10 @@
 
     <div class="tabs">
     <ul>
-      <li><a href="javascript:void(0);" class="tab-link" data-tab="Adamante">Konversi</a></li>
-      <li><a href="javascript:void(0);" class="tab-link" data-tab="Garnetia">Vanilla Butter Cookies</a></li>
-      <li><a href="javascript:void(0);" class="tab-link" data-tab="Delphia">Chocolate Butter Cookies</a></li>
+      <li><a href="javascript:void(0);" class="tab-link" data-tab="Conversion">Conversion</a></li>
+      <li><a href="javascript:void(0);" class="tab-link" data-tab="Vanilla Butter Cookies">Vanilla Butter Cookies</a></li>
+      <li><a href="javascript:void(0);" class="tab-link" data-tab="Chocolate Butter Cookies">Chocolate Butter Cookies</a></li>
+      <li><a href="javascript:void(0);" class="tab-link" data-tab="Classic Brownies">Classic Brownies</a></li>
       <li><a href="javascript:void(0);" class="tab-link" data-tab="Timer">Timer</a></li>
     </ul>
   </div>
@@ -32,10 +33,12 @@
   </div>
 
     <!-- Konversi -->
- <section id="Adamante" class="tab-content">
+ <section id="Conversion" class="tab-content">
   <div class="character-text">
     <h2>Konversi Cup -> Gram</h2>
   </div>
+
+  <button></button>
   <pre>
 <h2>1. Tepung Terigu Serbaguna & Gula Halus</h2>
 1/8 cup = 15 gram
@@ -85,14 +88,14 @@
 </section>
 
     <!-- Vanilla Butter Cookies -->
- <section id="Garnetia" class="card tab-content">
+ <section id="Vanilla Butter Cookies" class="card tab-content">
     <div class="character-text">
       <h2>Vanilla Butter Cookies</h2>
     </div>
     <h2>Bahan-Bahan:</h2>
     <ul>
         <li>¾ cangkir mentega (170 gram)</li>
-        <li>¾ cangkir gula (150 gram)</li>
+        <li>¾ cangkir gula (170 gram)</li>
         <li>2 kuning telur</li>
         <li>¼ sendok teh garam laut halus</li>
         <li>2 cangkir tepung terigu serbaguna (250 gram)</li>
@@ -106,12 +109,12 @@
         <li>Dalam mangkuk besar, gunakan mikser tangan untuk mengocok mentega dan gula hingga ringan dan lembut. Kocok kuning telur dan ekstrak vanili. Campur bahan basah dan kering.</li>
         <li>Bentuk adonan menjadi cakram dan bungkus dalam plastik. Simpan dalam lemari es selama satu jam.</li>
         <li>Gilas adonan hingga setebal ¼ inci dan potong berbentuk lingkaran.</li>
-        <li>Panggang selama 12 hingga 15 menit.</li>
+        <li>Panggang selama 12 hingga 15 menit menggunakan api kecil.</li>
     </ol>
 </section>
 
     <!-- Chocolate Butter Cookies -->
-<section id="Delphia" class="card tab-content">
+<section id="Chocolate Butter Cookies" class="card tab-content">
     <div class="character-text">
       <h2>Chocolate Butter Cookies</h2>
     </div>
@@ -136,7 +139,33 @@
         <li>Dalam mangkuk besar, gunakan mikser tangan untuk mengocok mentega dan garam hingga ringan dan lembut. Kocok kuning telur dan vanili.</li>
         <li>Campurkan campuran tepung dan cokelat dengan campuran mentega, aduk hingga tercampur rata. Bentuk adonan menjadi cakram dan bungkus dalam plastik. Simpan dalam lemari es hingga benar-benar dingin.</li>
         <li>Gilas adonan hingga setebal ¼ inci dan potong lingkaran.</li>
-        <li>Panggang selama 12 hingga 15 menit.</li>
+        <li>Panggang selama 12 hingga 15 menit menggunakan api kecil.</li>
+    </ol>
+</section>
+
+<section id="Classic Brownies" class="card tab-content">
+    <div class="character-text">
+      <h2>Chocolate Butter Cookies</h2>
+    </div>
+    <h2>Bahan-Bahan:</h2>
+    <ul>
+        <li>150 g Margarin</li>
+        <li>150 / 110 g  Coklat Batang</li>
+        <li>2 butir telur</li>
+        <li>125 g Gula Pasir</li>
+        <li>1/4 sdt garam (Sejumput)</li>
+        <li>130 g terigu</li>
+        <li>20 g Kakao</li>
+        <li>1/4 sdt Baking Powder</li>
+        <li>(Opsional) 1 sdm Kacang Cincang</li>
+    </ul>
+    
+    <h2>Langkah-Langkah:</h2>
+    <ol>
+        <li>Lelehkan Margarin dgn coklat batang</li>
+        <li>Kocok telur dgn gula & garam lalu tuangkan lelehan margarin dgn coklat</li>
+        <li>Tuangkan tepung, bubuk coklat, baking powder sambil di ayak dan dikocok dengan perlahan</li>
+        <li>Tuangkan ke loyang 30x10 cm yang telah di oles margarin. Panggang ± 30 menit (case point bisa hingga 35 menit) dengan suhu 180° menggunakan api kecil</li>
     </ol>
 </section>
 
@@ -145,64 +174,16 @@
         <h2>Countdown Timer</h2>
     </div>
     <div class="timer-input">
-        <input type="number" id="minutes" placeholder="00" min="0"> :
-        <input type="number" id="seconds" placeholder="00" min="0" max="59">
+        <input type="number" id="hours" placeholder="HH" min="0" max="99">
+        <input type="number" id="minutes" placeholder="MM" min="0" max="59">
+        <input type="number" id="seconds" placeholder="SS" min="0" max="59">
+        <button onclick="setTimer()">Set</button>
+        <div class="circle" id="timer">00:00:00</div>
+        <div class="controls">
+            <button class="start" onclick="startTimer()">Start</button>
+            <button class="pause" onclick="pauseTimer()">Pouse</button>
+            <button class="reset" onclick="resetTimer()">Reset</button>
     </div>
-    <p id="timer">00:00</p>
-    <div class="timer-buttons">
-        <button class="button" onclick="setTimer()">Atur</button>
-        <button class="button" onclick="startTimer()">Mulai</button>
-        <button class="button" onclick="pauseTimer()">Jeda</button>
-        <button class="button" onclick="resetTimer()">Reset</button>
-    </div>
-    <script>
-        let timeRemaining = 120;
-        let timerInterval;
-        const timerElement = document.getElementById('timer');
-
-        function updateTimerDisplay() {
-            let minutes = Math.floor(timeRemaining / 60);
-            let seconds = timeRemaining % 60;
-            timerElement.textContent = 
-                (minutes < 10 ? '0' : '') + minutes + ":" +
-                (seconds < 10 ? '0' : '') + seconds;
-        }
-
-        function setTimer() {
-            let min = parseInt(document.getElementById('minutes').value) || 0;
-            let sec = parseInt(document.getElementById('seconds').value) || 0;
-            timeRemaining = (min * 60) + sec;
-            updateTimerDisplay();
-        }
-
-        function startTimer() {
-            if (!timerInterval) {
-                timerInterval = setInterval(() => {
-                    if (timeRemaining > 0) {
-                        timeRemaining--;
-                        updateTimerDisplay();
-                    } else {
-                        clearInterval(timerInterval);
-                        alert("Waktu Habis!");
-                    }
-                }, 1000);
-            }
-        }
-
-        function pauseTimer() {
-            clearInterval(timerInterval);
-            timerInterval = null;
-        }
-
-        function resetTimer() {
-            clearInterval(timerInterval);
-            timerInterval = null;
-            timeRemaining = 120;
-            updateTimerDisplay();
-        }
-
-        updateTimerDisplay();
-    </script>
 </section>
 
   <script src="Recipe.js"></script>
