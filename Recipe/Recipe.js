@@ -121,52 +121,67 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
  //timer application//
- let timeRemaining = 0;
- let timerInterval;
- const timerElement = document.getElementById('timer');
+let timeRemaining = 0;
+let timerInterval;
+let animationInterval;
+let currentImage = 1;
+const timerElement = document.getElementById('timer');
+const timerImage = document.getElementById('timer-image');
 
- function updateTimerDisplay() {
-     let hours = Math.floor(timeRemaining / 3600);
-     let minutes = Math.floor((timeRemaining % 3600) / 60);
-     let seconds = timeRemaining % 60;
-     timerElement.textContent = 
-         (hours < 10 ? '0' : '') + hours + ":" +
-         (minutes < 10 ? '0' : '') + minutes + ":" +
-         (seconds < 10 ? '0' : '') + seconds;
- }
+function updateTimerDisplay() {
+    let hours = Math.floor(timeRemaining / 3600);
+    let minutes = Math.floor((timeRemaining % 3600) / 60);
+    let seconds = timeRemaining % 60;
+    timerElement.textContent =
+        (hours < 10 ? '0' : '') + hours + ":" +
+        (minutes < 10 ? '0' : '') + minutes + ":" +
+        (seconds < 10 ? '0' : '') + seconds;
+}
 
- function setTimer() {
-     let h = parseInt(document.getElementById('hours').value) || 0;
-     let m = parseInt(document.getElementById('minutes').value) || 0;
-     let s = parseInt(document.getElementById('seconds').value) || 0;
-     timeRemaining = (h * 3600) + (m * 60) + s;
-     updateTimerDisplay();
- }
+function setTimer() {
+    let h = parseInt(document.getElementById('hours').value) || 0;
+    let m = parseInt(document.getElementById('minutes').value) || 0;
+    let s = parseInt(document.getElementById('seconds').value) || 0;
+    timeRemaining = (h * 3600) + (m * 60) + s;
+    updateTimerDisplay();
+}
 
- function startTimer() {
-     if (!timerInterval) {
-         timerInterval = setInterval(() => {
-             if (timeRemaining > 0) {
-                 timeRemaining--;
-                 updateTimerDisplay();
-             } else {
-                 clearInterval(timerInterval);
-                 alert("Times!");
-             }
-         }, 1000);
-     }
- }
+function startTimer() {
+    if (!timerInterval) {
+        timerInterval = setInterval(() => {
+            if (timeRemaining > 0) {
+                timeRemaining--;
+                updateTimerDisplay();
+            } else {
+                clearInterval(timerInterval);
+                clearInterval(animationInterval);
+                timerImage.src = "Untitled326_20250329130602.png"; // Gambar ketika waktu habis
+            }
+        }, 1000);
 
- function pauseTimer() {
-     clearInterval(timerInterval);
-     timerInterval = null;
- }
+        // Mulai animasi gambar bergantian setiap 500ms
+        animationInterval = setInterval(() => {
+            currentImage = currentImage === 1 ? 2 : 1;
+            timerImage.src = `pixil-frame-0 (1).png`;
+        }, 500);
+    }
+}
 
- function resetTimer() {
-     clearInterval(timerInterval);
-     timerInterval = null;
-     timeRemaining = 0;
-     updateTimerDisplay();
- }
+function pauseTimer() {
+    clearInterval(timerInterval);
+    clearInterval(animationInterval);
+    timerInterval = null;
+    animationInterval = null;
+}
 
- updateTimerDisplay();
+function resetTimer() {
+    clearInterval(timerInterval);
+    clearInterval(animationInterval);
+    timerInterval = null;
+    animationInterval = null;
+    timeRemaining = 0;
+    timerImage.src = "pixil-frame-0.png"; // Kembali ke gambar awal
+    updateTimerDisplay();
+}
+
+updateTimerDisplay();

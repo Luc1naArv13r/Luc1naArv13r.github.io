@@ -23,7 +23,6 @@
       <li><a href="javascript:void(0);" class="tab-link" data-tab="Conversion">Conversion</a></li>
       <li><a href="javascript:void(0);" class="tab-link" data-tab="Vanilla Butter Cookies">Vanilla Butter Cookies</a></li>
       <li><a href="javascript:void(0);" class="tab-link" data-tab="Chocolate Butter Cookies">Chocolate Butter Cookies</a></li>
-      <li><a href="javascript:void(0);" class="tab-link" data-tab="Classic Brownies">Classic Brownies</a></li>
       <li><a href="javascript:void(0);" class="tab-link" data-tab="Timer">Timer</a></li>
     </ul>
   </div>
@@ -95,7 +94,7 @@
     <h2>Bahan-Bahan:</h2>
     <ul>
         <li>¾ cangkir mentega (170 gram)</li>
-        <li>¾ cangkir gula (170 gram)</li>
+        <li>¾ cangkir gula (150 gram)</li>
         <li>2 kuning telur</li>
         <li>¼ sendok teh garam laut halus</li>
         <li>2 cangkir tepung terigu serbaguna (250 gram)</li>
@@ -143,48 +142,33 @@
     </ol>
 </section>
 
-<section id="Classic Brownies" class="card tab-content">
-    <div class="character-text">
-      <h2>Classic Brownies</h2>
-    </div>
-    <h2>Bahan-Bahan:</h2>
-    <ul>
-        <li>150 g Margarin</li>
-        <li>150 / 110 g  Coklat Batang</li>
-        <li>2 butir telur</li>
-        <li>125 g Gula Pasir</li>
-        <li>1/4 sdt garam (Sejumput)</li>
-        <li>130 g terigu</li>
-        <li>20 g Kakao</li>
-        <li>1/4 sdt Baking Powder</li>
-        <li>(Opsional) 1 sdm Kacang Cincang</li>
-    </ul>
-    
-    <h2>Langkah-Langkah:</h2>
-    <ol>
-        <li>Lelehkan Margarin dgn coklat batang</li>
-        <li>Kocok telur dgn gula & garam lalu tuangkan lelehan margarin dgn coklat</li>
-        <li>Tuangkan tepung, bubuk coklat, baking powder sambil di ayak dan dikocok dengan perlahan</li>
-        <li>Tuangkan ke loyang 30x10 cm yang telah di oles margarin. Panggang ± 30 menit (case point bisa hingga 35 menit) dengan suhu 180° menggunakan api kecil</li>
-    </ol>
+<section id="Timer" class="card tab-content">
+  <div class="character-text">
+      <h2>Countdown Timer</h2>
+  </div>
+
+  <!-- Input untuk memasukkan waktu -->
+  <div class="timer-input">
+      <input type="number" id="hours" placeholder="HH" min="0" max="99">
+      <input type="number" id="minutes" placeholder="MM" min="0" max="59">
+      <input type="number" id="seconds" placeholder="SS" min="0" max="59">
+      <button onclick="setTimer()">Set</button>
+  </div>
+
+  <!-- Animasi gambar timer -->
+  <div class="timer-display">
+      <img id="timer-image" src="pixil-frame-0.png" alt="Timer Animation" width="200">
+      <div class="circle" id="timer">00:00:00</div>
+  </div>
+
+  <!-- Tombol kontrol -->
+  <div class="controls">
+      <button class="start" onclick="startTimer()" aria-label="Start Timer">Start</button>
+      <button class="pause" onclick="pauseTimer()" aria-label="Pause Timer">Pause</button>
+      <button class="reset" onclick="resetTimer()" aria-label="Reset Timer">Reset</button>
+  </div>
 </section>
 
-<section id="Timer" class="card tab-content">
-    <div class="character-text">
-        <h2>Countdown Timer</h2>
-    </div>
-    <div class="timer-input">
-        <input type="number" id="hours" placeholder="HH" min="0" max="99">
-        <input type="number" id="minutes" placeholder="MM" min="0" max="59">
-        <input type="number" id="seconds" placeholder="SS" min="0" max="59">
-        <button onclick="setTimer()">Set</button>
-        <div class="circle" id="timer">00:00:00</div>
-        <div class="controls">
-            <button class="start" onclick="startTimer()">Start</button>
-            <button class="pause" onclick="pauseTimer()">Pouse</button>
-            <button class="reset" onclick="resetTimer()">Reset</button>
-    </div>
-</section>
 
   <script src="Recipe.js"></script>
 </body>
