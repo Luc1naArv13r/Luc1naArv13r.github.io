@@ -390,6 +390,24 @@ button:hover {
   animation: slideInRight 0.4s ease-in-out;
 }
 
+.tabs-container {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.tabs {
+  display: inline-flex;
+}
+
+.tab {
+  min-width: 120px;
+  padding: 10px 20px;
+  border: none;
+  background-color: lightgray;
+  margin-right: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+}
 /* Tab Navigation Styles */
 .tabs {
   display: flex;
