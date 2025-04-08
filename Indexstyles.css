@@ -137,6 +137,30 @@ body.dark .hero p {
   color: #fff6d8;
 }
 
+.navbar {
+  background-color: #333;
+  overflow-x: auto;
+}
+
+.nav-scroll {
+  display: flex;
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.nav-scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.nav-scroll a {
+  display: inline-block;
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
 @media (max-width: 768px) {
   .navbar ul {
       flex-direction: column;
