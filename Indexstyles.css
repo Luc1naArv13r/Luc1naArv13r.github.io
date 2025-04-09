@@ -138,27 +138,8 @@ body.dark .hero p {
 }
 
 .navbar {
-  background-color: #333;
+  background-color: none;
   overflow-x: auto;
-}
-
-.nav-scroll {
-  display: flex;
-  white-space: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none; /* Firefox */
-}
-
-.nav-scroll::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
-}
-
-.nav-scroll a {
-  display: inline-block;
-  color: white;
-  padding: 14px 20px;
-  text-decoration: none;
-  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
@@ -481,4 +462,3 @@ button, a {
   text-decoration: none; /* Remove underline */
   color: white; /* Set text color to white */
 }
-
