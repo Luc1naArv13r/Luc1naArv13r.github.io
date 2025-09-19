@@ -3,119 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reila Arvier</title>
-  <link rel="website icon" type="png" href="Your_paragraph_text__1_-removebg-preview.png">
-  <link rel="stylesheet" href="Indexstyles.css">
-  <script defer src="Indexscript.js"></script>
+  <title>Reila Arvier Space</title>
+    <link rel="stylesheet" href="index.css" />
 </head>
 <body>
+  <!-- Animated Background -->
+  <div class="background"></div>
 
-  <!-- Header Navigation -->
-  <header class="header">
-    <div class="logo"><h2>Reila Arvier</h2></div>
-    <nav class="navbar">
-      <ul>
-        <li><a href="javascript:void(0);" class="tab-link" data-tab="profile"><button class="tab-button">About <br>📇</button></a></li>
-        <li><a href="javascript:void(0);" class="tab-link" data-tab="books"><button class="tab-button">Books<br>  📖</button></a></li>
-        <li><a href="Reminder/index.html"><button class="tab-button">Reminder<br>📅</button></a></li>
-        <li><a href="Recipe/Recipe.html"><button class="tab-button">Recipe<br>🍴🍪</button></a></li>
-        <li><a href="javascript:void(0);" class="tab-link" data-tab="contact"><button class="tab-button">Contact<br>📞</button></a></li>
-        <li><button id="theme-toggle" class="tab-button">
-        <span id="theme-icon">🌙</span>
-        </button></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Main Content -->
-  <main>
-    
-    <!-- Hero Section -->
-    <section class="hero">
-      <h1>Welcome to Reila Arvier's World</h1>
-      <p>Author & Programmer | Dive into captivating tales</p>
-    </section>
-
-    <!-- Profile Section -->
-    <section id="profile" class="card tab-content">
-      <img src="image-150x150.jpg" alt="Reila Arvier">
-      <div class="profile-text">
-        <h2>Reila Arvier</h2>
-        <p><strong>Age:</strong> 20</p>
-        <p><strong>Height:</strong> 150 cm</p>
-        <p><strong>Birthday:</strong> Jan. 2nd</p>
-        <p><strong>Sign:</strong> Capricorn</p>
-        <p><strong>Occupation:</strong> Author & College Student</p>
-      </div>
-    </section>
-
-     <!-- Books Section (Initially Hidden) -->
-     <section id="books" class="books-grid tab-content" style="display: none;">
-      <h2>Books</h2>
-      <div class="books-grid">
-
-        <div class="book" data-title="Tales Of Chrystalia" 
-        data-info="Published: 2023.<br><br>
-        Genre: Fantasy.<br><br>
-        Synopsis: A tale of love and adventure amidst magical realms. Do the lost kingdom
-        true heir will come back to reclaim his right or not?<br> <br> 
-        <button><a href='ToC/Tales of Chrystalia.html'>Lets began the journey </a></button>">
-          <img src="ToC/Six Hands Chalk.jpg" alt="Tales Of Chrystalia">
-          <h3>Tales Of Chrystalia</h3>
-        </div>
-        
-        <div class="book" data-title="Cyber Knight" 
-        data-info="Published: xxxx.<br><br>
-        Genre: Fantasy, Cyber.<br><br>
-        Synopsis: A tale of rebellion and redemption amidst cybernetic realms. What secrets lie within the forbidden Peony program, 
-        and why was the last test subject saved by a fallen protector?<br> <br> 
-        <button><a href='CK/CK.html'>Lets began the journey </a></button>">
-          <img src="CK/Knight.png" alt="Cyber Knight">
-          <h3>Cyber Knight</h3>
-        </div>
-              
-      <div class="book" data-title="Twisted Wonderland" 
-      data-info="Published: xxxx.<br><br>
-      Genre: Fantasy, Cyber.<br><br>
-      Synopsis: A tale of rebellion and redemption amidst cybernetic realms. What secrets lie within the forbidden Peony program, 
-      and why was the last test subject saved by a fallen protector?<br> <br> 
-      <button><a href='TWST/Twisted Wonderland Fanfict.html'>Lets began the journey </a></button>">
-        <img src="#" alt="Twisted Wonderland">
-        <h3>Twisted Wonderland</h3>
-      </div>
-
-      <div class="book" data-title="Love and Deepspace" 
-      data-info="Published: xxxx.<br><br>
-      Genre: Fantasy, Cyber.<br><br>
-      Synopsis: A tale of rebellion and redemption amidst cybernetic realms. What secrets lie within the forbidden Peony program, 
-      and why was the last test subject saved by a fallen protector?<br> <br> 
-      <button><a href='LnD/Main Menu.html'>Lets began the journey </a></button>">
-        <img src="#" alt="Love and Deepspace">
-        <h3>Love and Deepspace</h3>
-      </div>
-
-        <p>coming soon</p>
-      </div>
-    </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="card tab-content" style="display: none;">
-      <h2>Contact</h2>
-      <p>Email: reila@example.com</p>
-    </section>
-
-  </main>
-
-  <!-- Modal for Book & Notes -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2 id="modal-title"></h2>
-      <p id="modal-info"></p>
-      <button id="close-modal">Close</button>
-    </div>
+  <!-- Welcome Screen -->
+  <div id="welcomeScreen">
+    <div class="welcome">WELCOME</div>
+    <div class="subtitle">REILA ARVIER SPACE</div>
   </div>
 
+  <!-- Main Page -->
+  <div id="mainPage">
+    <header>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+      <div class="title">REILA ARVIER SPACE</div>
+    </header>
+
+<div class="sidebar" id="sidebar">
+  <button class="close-btn" onclick="toggleMenu()">✖</button>
+
+  <!-- Toggle links (same page content switching) -->
+<a href="#" onclick="showPage('home')">Home</a>
+<a href="#" onclick="showPage('book')">Books</a>
+<a href="#" onclick="showPage('blog')">Blog</a>
+<a href="#" onclick="showPage('gallery')">Gallery</a>
+<a href="#" onclick="showPage('contact')">Contact</a>
+</div>
+
+<div class="content">
+
+  <!-- Default page -->
+  <div id="home" class="page active">
+    <h2>Welcome to My Blog</h2>
+    <p>This is the homepage content.</p>
+  </div>
+
+  <div id="book" class="page">
+    <h2>Books</h2>
+    
+  </div>
+  <!-- Toggle page: Blog -->
+  <div id="blog" class="page">
+    <h2>Blog</h2>
+    <p>This is where your blog posts will go.</p>
+  </div>
+
+  <!-- Toggle page: Gallery -->
+  <div id="gallery" class="page">
+    <h2>Gallery</h2>
+    <p>Here you can show some images.</p>
+  </div>
+
+</div>
+
+  <script src="index.js"></script>
 </body>
 </html>
