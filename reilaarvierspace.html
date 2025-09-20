@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reila Arvier Space</title>
+    <link rel="stylesheet" href="reilaarvierspace.css" />
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="background"></div>
+
+  <!-- Welcome Screen -->
+  <div id="welcomeScreen">
+    <div class="welcome">WELCOME</div>
+    <div class="subtitle">REILA ARVIER SPACE</div>
+  </div>
+
+  <!-- Main Page -->
+  <div id="mainPage">
+    <header>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+      <div class="title">REILA ARVIER SPACE</div>
+    </header>
+
+<div class="sidebar" id="sidebar">
+  <button class="close-btn" onclick="toggleMenu()">✖</button>
+
+  <!-- Toggle links (same page content switching) -->
+<a href="kubisfamily.html"> Kubis Family</a>
+<a href="#" onclick="showPage('home')">Home</a>
+<a href="#" onclick="showPage('book')">Books</a>
+<a href="#" onclick="showPage('blog')">Blog</a>
+<a href="#" onclick="showPage('gallery')">Gallery</a>
+<a href="#" onclick="showPage('contact')">Contact</a>
+</div>
+
+<div class="content">
+
+  <!-- Default page -->
+  <div id="home" class="page active">
+    <h2>Welcome to My Blog</h2>
+    <p>This is the homepage content.</p>
+  </div>
+
+  <div id="book" class="page">
+    <h2>Books</h2>
+    
+  </div>
+  <!-- Toggle page: Blog -->
+  <div id="blog" class="page">
+    <h2>Blog</h2>
+    <p>This is where your blog posts will go.</p>
+  </div>
+
+  <!-- Toggle page: Gallery -->
+  <div id="gallery" class="page">
+    <h2>Gallery</h2>
+    <p>Here you can show some images.</p>
+  </div>
+
+</div>
+
+  <script src="reilaarvierspace.js"></script>
+</body>
+</html>
