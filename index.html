@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reila Arvier Space</title>
-    <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="reilaarvierspace.css" />
 </head>
 <body>
   <!-- Animated Background -->
@@ -23,43 +23,92 @@
       <div class="title">REILA ARVIER SPACE</div>
     </header>
 
-<div class="sidebar" id="sidebar">
-  <button class="close-btn" onclick="toggleMenu()">✖</button>
+    <div class="sidebar" id="sidebar">
+      <button class="close-btn" onclick="toggleMenu()">✖</button>
 
-  <!-- Toggle links (same page content switching) -->
-<a href="#" onclick="showPage('home')">Home</a>
-<a href="#" onclick="showPage('book')">Books</a>
-<a href="#" onclick="showPage('blog')">Blog</a>
-<a href="#" onclick="showPage('gallery')">Gallery</a>
-<a href="#" onclick="showPage('contact')">Contact</a>
-</div>
+      <!-- Toggle links (same page content switching) -->
+      <a href="kubisfamily.html">Kubis Family</a>
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('book')">Books</a>
+      <a href="#" onclick="showPage('blog')">Blog</a>
+      <a href="#" onclick="showPage('gallery')">Gallery</a>
+      <a href="#" onclick="showPage('contact')">Contact</a>
+    </div>
 
-<div class="content">
+    <div class="content">
 
-  <!-- Default page -->
-  <div id="home" class="page active">
-    <h2>Welcome to My Blog</h2>
-    <p>This is the homepage content.</p>
+      <!-- Default page -->
+      <div id="home" class="page active">
+        <h2>Welcome to My Blog</h2>
+        <p>This is the homepage content.</p>
+      </div>
+
+      <!-- Books Page -->
+      <div id="book" class="page">
+        <section id="books" class="tab-content books-grid">
+          <h2>Books</h2>
+          <div class="books-grid">
+
+            <!-- Book 1 -->
+            <div class="book" 
+                 data-title="Tales Of Chrystalia" 
+                 data-info="Published: 2023.<br><br>Genre: Fantasy.<br><br>Synopsis: A tale of love and adventure amidst magical realms. Do the lost kingdom true heir will come back to reclaim his right or not?"
+                 data-img="ToC/Six Hands Chalk.jpg"
+                 data-link="ToC/Tales of Chrystalia.html">
+              <img src="ToC/Six Hands Chalk.jpg" alt="Cover of Tales Of Chrystalia">
+              <h3>Tales Of Chrystalia</h3>
+            </div>
+
+            <!-- Book 2 -->
+            <div class="book" 
+                 data-title="Cyber Knight" 
+                 data-info="Published: xxxx.<br><br>Genre: Fantasy, Cyber.<br><br>Synopsis: A tale of rebellion and redemption amidst cybernetic realms. What secrets lie within the forbidden Peony program, and why was the last test subject saved by a fallen protector?"
+                 data-img="CK/Knight.png"
+                 data-link="CK/CK.html">
+              <img src="CK/Knight.png" alt="Cover of Cyber Knight">
+              <h3>Cyber Knight</h3>
+            </div>
+
+            <!-- Book 3 -->
+            <div class="book" 
+                 data-title="Twisted Wonderland" 
+                 data-info="Published: xxxx.<br><br>Genre: Fantasy.<br><br>Synopsis: A twisted tale inspired by wonderland, with magic, danger, and secrets hidden in every corner."
+                 data-img="TWST/Img/artbook-twisted-wonderland-magical-archives.jpg"
+                 data-link="TWST/Twisted Wonderland Fanfict.html">
+              <img src="TWST/Img/artbook-twisted-wonderland-magical-archives.jpg" alt="Cover of Twisted Wonderland">
+              <h3>Twisted Wonderland</h3>
+            </div>
+
+            <!-- Book 4 -->
+            <div class="book" 
+                 data-title="Love and Deepspace" 
+                 data-info="Published: xxxx.<br><br>Genre: Sci-Fi Romance.<br><br>Synopsis: A journey through galaxies where love defies the void of space."
+                 data-img="LnD/144813_Love_and_Deepspace.webp"
+                 data-link="LnD/Main Menu.html">
+              <img src="LnD/144813_Love_and_Deepspace.webp" alt="Cover of Love and Deepspace">
+              <h3>Love and Deepspace</h3>
+            </div>
+
+            <p>More coming soon...</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- Toggle page: Blog -->
+      <div id="blog" class="page">
+        <h2>Blog</h2>
+        <p>This is where your blog posts will go.</p>
+      </div>
+
+      <!-- Toggle page: Gallery -->
+      <div id="gallery" class="page">
+        <h2>Gallery</h2>
+        <p>Here you can show some images.</p>
+      </div>
+
+    </div>
   </div>
 
-  <div id="book" class="page">
-    <h2>Books</h2>
-    
-  </div>
-  <!-- Toggle page: Blog -->
-  <div id="blog" class="page">
-    <h2>Blog</h2>
-    <p>This is where your blog posts will go.</p>
-  </div>
-
-  <!-- Toggle page: Gallery -->
-  <div id="gallery" class="page">
-    <h2>Gallery</h2>
-    <p>Here you can show some images.</p>
-  </div>
-
-</div>
-
-  <script src="index.js"></script>
+  <script src="reilaarvierspace.js"></script>
 </body>
 </html>
