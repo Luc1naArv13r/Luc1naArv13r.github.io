@@ -30,47 +30,33 @@
   // Close sidebar after selecting
   toggleMenu();
 }
-// Modal elements
-const modal = document.getElementById("bookModal");
-const modalCover = document.getElementById("modalCover");
-const modalTitle = document.getElementById("modalTitle");
-const modalSynopsis = document.getElementById("modalSynopsis");
-const closeBtn = modal.querySelector(".close-modal");
-const visitBtn = modal.querySelector(".visit-site");
+  // Modal Elements
+  const modal = document.getElementById("bookModal");
+  const modalImg = document.getElementById("modalImg");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalInfo = document.getElementById("modalInfo");
+  const modalLink = document.getElementById("modalLink");
+  const closeBtn = document.querySelector(".close");
 
-let currentLink = "";
-
-// Open modal when book clicked
-document.querySelectorAll(".book").forEach(book => {
-  book.addEventListener("click", () => {
-    const title = book.dataset.title;
-    const synopsis = book.dataset.synopsis;
-    const cover = book.querySelector("img").src;
-    currentLink = book.dataset.link;
-
-    modalTitle.textContent = title;
-    modalSynopsis.textContent = synopsis;
-    modalCover.src = cover;
-
-    modal.style.display = "block";
+  // Open modal when book is clicked
+  document.querySelectorAll(".book").forEach(book => {
+    book.addEventListener("click", () => {
+      modal.style.display = "flex";
+      modalImg.src = book.dataset.img;
+      modalTitle.innerText = book.dataset.title;
+      modalInfo.innerHTML = book.dataset.info;
+      modalLink.href = book.dataset.link;
+    });
   });
-});
 
-// Close modal
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-});
-
-// Visit site
-visitBtn.addEventListener("click", () => {
-  if (currentLink) {
-    window.open(currentLink, "_blank");
-  }
-});
-
-// Close modal when clicking outside
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
+  // Close modal
+  closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
-  }
-});
+  });
+
+  // Close modal if clicked outside
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
