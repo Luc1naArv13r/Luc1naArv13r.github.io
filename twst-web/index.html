@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/bg_10221.png">
+    <title>Night Raven College - OS</title>
+</head>
+<body>
+
+    <div id="app-container">
+        <img src="assets/frame.png" id="frame-asset" draggable="false">
+
+        <div id="drag-region"></div>
+
+<div id="main-viewport">
+            
+            <div id="view-home" class="view active">
+                <div class="wallpaper-checkered"><img src="assets/background.png"></div>
+                <div class="clock-container">
+                    <div id="day-period">Morning</div>
+                    <div id="time-display">00.00</div>
+                    <img id="main-character" class="character-sprite">
+                    <div id="date-display">Mon, 19/03/2026</div>
+                </div>
+            </div>
+
+            <div id="view-char" class="view">
+                <div class="wallpaper-checkered"></div>
+                <div class="selector-layout">
+                    <h2 class="title-font">Select Student</h2>
+                    <div class="picker-row">
+                        <button class="arrow-btn" onclick="changeCharSelection(-1)"><img src="assets/btn_left.png"></button>
+                        <img id="preview-img" src="assets/grim_icon.png">
+                        <button class="arrow-btn" onclick="changeCharSelection(1)"><img src="assets/btn_right.png"></button>
+                    </div>
+                    <button class="confirm-btn" onclick="confirmCharacter()"><img src="assets/btn_confirm.png"></button>
+                </div>
+            </div>
+
+            <div id="view-tetris" class="view">
+                <div class="wallpaper-checkered"></div>
+                <div class="game-container">
+                    <h2 class="title-font">Rhythmic Training</h2>
+                    <canvas id="tetris-canvas" width="240" height="400"></canvas>
+                    <div class="game-info">
+                        <p>Score: <span id="score">0</span></p>
+                        <button class="confirm-btn" onclick="startTetris()">Start Game</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-notes" class="view">
+                <div class="wallpaper-checkered"></div>
+                <div class="notes-layout">
+                    <h2 class="title-font">Grim's Grimoire</h2>
+                    <textarea id="note-pad" placeholder="Write your magic formulas..."></textarea>
+                    <div id="save-status">Saved</div>
+                </div>
+            </div>
+
+            <div id="view-camera" class="view">
+                <video id="webcam" autoplay playsinline></video>
+                <canvas id="photo-canvas" style="display:none;"></canvas>
+                <div class="camera-controls">
+                    <button class="cam-btn" onclick="takePhoto()"><img src="assets/rhythmic_notes2 1.png"></button>
+                </div>
+            </div>
+
+            <div id="view-video" class="view">
+                <div class="wallpaper-checkered"></div>
+                <video id="video-player" width="100%" height="100%" autoplay muted playsinline></video>
+            </div>
+
+                            <div id="view-music" class="view">
+                    <h2 class="title-font" style="text-align: center; color: white; margin-top: 20px;">NRC Jukebox</h2>
+                    
+                    <div class="music-player-container">
+                        <div class="album-art">
+                            <img src="assets/event_1111_02.png">
+                        </div>
+
+                        <div class="player-controls">
+                            <button class="ctrl-btn" onclick="prevTrack()">
+                                <img src="assets/btn_left.png">
+                            </button>
+                            <button class="ctrl-btn" onclick="togglePlay()">
+                                <img src="assets/btn_rhythmic 1.png">
+                            </button>
+                            <button class="ctrl-btn" onclick="nextTrack()">
+                                <img src="assets/btn_right.png">
+                            </button>
+                        </div>
+
+                        <div class="progress-container">
+                            <input type="range" id="progress-bar" value="0" max="100" oninput="seekAudio(this.value)">
+                        </div>
+
+                        <div id="playlist-list" class="playlist-scroll"></div>
+                    </div>
+                </div>
+
+        </div> 
+
+        <div id="nav-bar">
+            <button class="nav-btn" onclick="showTab('home')"><img src="assets/btn_home 5.png"></button>
+            <button class="nav-btn" onclick="showTab('char')"><img src="assets/btn_chara 1.png"></button>
+            <button class="nav-btn" onclick="showTab('tetris')"><img src="assets/btn_rhythmic 1.png"></button>
+            <button class="nav-btn" onclick="showTab('notes')"><img src="assets/btn_mission 1.png"></button>
+            <button class="nav-btn" onclick="showTab('camera')"><img src="assets/cam.png"></button>
+            <button class="nav-btn" onclick="showTab('video')"><img src="assets/btn_gacha 1.png"></button>
+            <button class="nav-btn" onclick="showTab('music')"><img src="assets/event_1111_02.png"></button>
+        </div>
+
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
